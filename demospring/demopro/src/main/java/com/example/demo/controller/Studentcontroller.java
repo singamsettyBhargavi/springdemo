@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +28,7 @@ public String regsteruser(@ModelAttribute Student stu, Model m) {
 	Student stus= s.save(stu);
 if(stus !=null) {
 	m.addAttribute("success", "suc");
-	return "redirect:/stulog"; 
+	return "login"; 
 }
 else
 {
@@ -35,10 +37,14 @@ else
 	return "login";
 }
 
-@GetMapping("/stulog")
-public String loguser() {
-	return "";
-	
+
+@GetMapping("/login")
+public String loginPage(Model model) {
+    return "login";
 }
+
+
+    
 }
+
 
